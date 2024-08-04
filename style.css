@@ -92,3 +92,44 @@ border-radius: 2rem;
         border: none;
         border-radius: 1rem;
     }
+
+    .box{
+        background:#ded7d7;
+        width: 16rem;
+        height: 16rem;
+        border-radius: 2rem;
+    }
+    .shimmer-ring {
+        background-color: #b4acac;
+            }
+            .header ul button{
+                font-size: 1.2rem;
+                background: #008d81;
+                color:  white;
+                font-weight: bold;
+                border: none;
+                padding: 0.5rem 1rem;
+                border-radius: 1rem;
+            }
+        .sameBtn{
+            font-size: 1.2rem;
+            background: #008d81;
+            color:  white;
+            font-weight: bold;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 1rem; 
+            margin-right: 1rem;
+        }
+
+        .shimmer{
+            
+            
+                margin-top: 8rem;
+                margin-left: 8rem;
+                 display: flex;
+                  flex-wrap: wrap;
+                  gap: 4rem;
+                
+             
+        }

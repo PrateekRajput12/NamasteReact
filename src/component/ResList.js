@@ -7,7 +7,7 @@ const ResList=(props)=>{
         cloudinaryImageId,
     cuisines,
     name,
-    aggregatedDiscountInfoV3,avgRating
+    avgRating
     }=resData?.info
     return(
         <div className="resinfo">
