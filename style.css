@@ -7,7 +7,7 @@
 
 :root{
     font-size:  10 px;
-font-family: Verdana, Geneva, Tahoma, sans-serif;
+font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
 }
 
 .wrapper{
@@ -52,12 +52,12 @@ padding-top: 2rem;
    margin-top: 2rem;
     display: flex;
      flex-wrap: wrap;
-     gap: 5rem;
+     gap: 4rem;
    
 }
 
 .resinfo{
-max-width: 16rem;
+max-width: 17rem;
 max-height: 18rem;
 
 border-radius: 2rem;
@@ -72,7 +72,13 @@ border-radius: 2rem;
 
     .resinfo  h2,h3,p{
         margin-left: 0.5rem;
+       
     }
+    .resinfo  p{
+        margin-left: 0.5rem;
+       font-size: 0.9rem;
+    }
+
 
     .body .search-section input{
         padding: 0.5rem ; 
