@@ -3,6 +3,7 @@ import ResList from './ResList'
 import { API_URL } from '../utils/constants'
 import {useState,useEffect} from 'react'
 import Shimmer from './Shimmer'
+import {Link} from "react-router-dom";
 
 
 const Body =()=>{
@@ -24,7 +25,10 @@ const [searchValue,setSearchValue] = useState(null)
         fetchData()
     },[])
 
-    return restaurantt.length==0?(<Shimmer/>):(
+    if(restaurantt.length==0){
+      return <Shimmer/>
+    }
+    return (
         <div className="body">
            <div className="search-section">
             <input type="search"   placeholder="Search here..." change={searchValue} onChange={(e)=>{
@@ -64,7 +68,7 @@ setFilteredRes(filteredData)
            <div className="resContainer">
 {
   filteredRes?.map((data,index)=>(
-<ResList key={index} resData={data}/>
+<Link to={"/restaurant/"+data?.info?.id} key={data?.info?.id} className="link"><ResList  resData={data}/></Link>
   ))
 }
            </div>

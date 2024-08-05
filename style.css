@@ -57,10 +57,13 @@ padding-top: 2rem;
 }
 
 .resinfo{
-max-width: 17rem;
-max-height: 18rem;
+width: 16rem;
+height: 20rem;
 
 border-radius: 2rem;
+color: black;
+
+/* border: 1px solid black; */
 
 }
 .resinfo img{
@@ -133,3 +136,46 @@ border-radius: 2rem;
                 
              
         }
+        .menu{
+            width: 50%;
+            margin: 2rem auto;
+
+
+        }
+        .resMenu-nav{
+            display: flex;
+            justify-content: start;
+            align-items: center;
+        }
+        .resMenu-nav-Link{
+            font-size: 0.8rem;
+            color: #b4acac;
+            text-decoration: none;
+            
+            cursor: pointer;
+        }
+
+      .resMenu-nav-Link:hover{
+        color: #292727;
+        font-size: 0.9rem;
+      }
+      .link{
+    text-decoration: none;
+      }
+
+   .resInfo-box{
+    margin: 2rem;
+    padding: 2rem;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 7px 7px 12px black,-2px -2px 7px black;
+    border: 1px solid black;
+   }
+
+   .cuisine-info{
+  color: #ff5200;
+  font-size: 0.9rem;
+  font-weight: bold;
+   }
