@@ -11,14 +11,15 @@
   "license": "ISC",
   "devDependencies": {
     "parcel": "^2.12.0",
-    "postcss": "^8.4.40",
+    "postcss": "^8.4.41",
     "process": "^0.11.10",
-    "tailwindcss": "^3.4.7"
+    "tailwindcss": "^3.4.8"
   },
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router": "^6.26.0",
     "react-router-dom": "^6.26.0"
-  }
+  },
+  "main": "App.js"
 }

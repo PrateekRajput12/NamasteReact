@@ -32,13 +32,15 @@ userInfo:json
   render(){
     const {name,location,bio,avatar_url}=this.state.userInfo;
     return(
- <div className="AboutUS-section">
+ <div className="AboutUS-section w-[var(--max-width)] m-auto p-[5rem]">
+
+<div> 
+<img src={avatar_url}/>
+</div>
 <div>
-<div>  <h2>{name}</h2>
+   <h2>{name}</h2>
   <h3>{location}</h3>
   <p>{bio}</p></div>
-</div>
-<img src={avatar_url}/>
  </div>
     )
   }

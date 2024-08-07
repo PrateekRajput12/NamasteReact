@@ -20,7 +20,7 @@ const Grocery=lazy(()=>import('./src/component/Grocery'))
 const AppLayout= ()=>{
   const heading=<h1>This is not done </h1>
     return(
-        <div className="wrapper w-[100vw] bg-black">
+        <div className="wrapper w-[100vw] ">
 <Header></Header>
 <Outlet/>
         </div>

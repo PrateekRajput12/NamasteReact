@@ -25,24 +25,24 @@ const [menuType,setmenutype]=useState([])
 // }=menuType?.card?.card
    
   return (
-    <div className="menu">
+    <div className="menu w-[50%] m-auto p-[3rem]">
 {/* Top # options */}
 
-      <div className="resMenu-nav">
+      <div className="resMenu-nav text-gray-400 flex  mb-[2rem]">
   <Link to="/"  className="resMenu-nav-Link">      <p>Home /</p></Link>
-   <Link to="#"  className="resMenu-nav-Link">     <p> Delhi /</p></Link>
-      <Link to="/restaurants/:resId" className="resMenu-nav-Link">  <p> ResName</p></Link>
+   <Link to="#"  className="resMenu-nav-Link ">     <p> Delhi /</p></Link>
+      <Link to="/restaurants/:resId" className="resMenu-nav-Link ">  <p> ResName</p></Link>
       </div>
  
  {/* Box Show at Top */}
 
 
-  <div className="resInfo-box">
-  <h1>{restaurantInfo?.name}</h1>
-<p><i className="fa-solid fa-star"></i> {restaurantInfo?.avgRating}({restaurantInfo?.totalRatingsString}) * {restaurantInfo?.costForTwoMessage}</p>
-<p className="cuisine-info"><Link to="#" className="cuisine-info">Chinese</Link>,<Link to="#" className="cuisine-info">{restaurantInfo?.cuisines}</Link></p>
+  <div className="resInfo-box  border-black border-2 p-8 rounded-[3rem] flex flex-col gap-[0.7rem] m-[3rem] ">
+  <h1 className="text-[2rem] font-bold">{restaurantInfo?.name}</h1>
+<p className="font-semibold text-[1rem]"><i className="fa-solid fa-star  text-green-600"></i> {restaurantInfo?.avgRating}({restaurantInfo?.totalRatingsString}) * {restaurantInfo?.costForTwoMessage}</p>
+<p className="cuisine-info text-[#ff5200] font-semibold underline"><Link to="#" className="cuisine-info">Chinese</Link>,<Link to="#" className="cuisine-info">{restaurantInfo?.cuisines}</Link></p>
 <hr></hr>
-<p className="feeDetails">{restaurantInfo?.feeDetails?.message}</p>
+<p className="feeDetails font-semibold">{restaurantInfo?.feeDetails?.message}</p>
  </div>
 
  {/* Different Type Res */}

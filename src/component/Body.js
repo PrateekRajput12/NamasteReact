@@ -29,21 +29,13 @@ const [searchValue,setSearchValue] = useState(null)
       return <Shimmer/>
     }
     return (
-        <div className="body">
-           <div className="search-section">
-            <input type="search"   placeholder="Search here..." change={searchValue} onChange={(e)=>{
+        <div className="body w-[var(--max-width)] m-auto  p-[3.5rem]">
+           <div className="search-section m-[3rem] ">
+            <input type="search"  className="text-[2rem] rounded-[3rem]  px-[2rem] py-[1.3rem] ml-6"  placeholder="Search here..." change={searchValue} onChange={(e)=>{
 setSearchValue(e.target.value)
             }}/>
 
-
-
-
-
-
-
-
-
-           <button className="sameBtn" onClick={
+           <button className="sameBtn text-[2rem] font-bold bg-emerald-500 px-[2.5rem] py-[0.8rem] rounded-[3rem] text-white ml-6" onClick={
             ()=>{
           const filteredData=restaurantt?.filter((data)=>(data?.info?.name?.toLowerCase()?.includes(searchValue?.toLowerCase())))
 //  console.log(filteredData);
@@ -59,13 +51,13 @@ setFilteredRes(filteredData)
 
 
 
-            <button className="sameBtn" onClick={()=>{
+            <button className="sameBtn sameBtn text-[2rem] font-bold bg-emerald-500 px-[2.5rem] py-[0.8rem] rounded-[3rem] text-white  ml-6" onClick={()=>{
               const filtereddat=restaurantt?.filter((res)=>res?.info?.avgRating >4)
              setFilteredRes(filtereddat)}
             }>Filtre</button>
 
            </div>
-           <div className="resContainer">
+           <div className="resContainer flex flex-wrap justify-center items-center  gap-[6rem]">
 {
   filteredRes?.map((data,index)=>(
 <Link to={"/restaurant/"+data?.info?.id} key={data?.info?.id} className="link"><ResList  resData={data}/></Link>
