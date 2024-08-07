@@ -1,17 +1,19 @@
 import React from 'react'
 import {useState,useEffect} from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { json, Link, useParams } from 'react-router-dom'
+// import useFetch from '../hooks/useFetch'
 const ResMenu = () => {
 const {Id}=useParams()
 console.log(Id);
 const [menuType,setmenutype]=useState([])
     const [restaurantInfo,setrestaurantInfo]=useState([])
+
     const fetchData =async()=>{
       const data =await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.6542&lng=77.2373&restaurantId=${Id}&catalog_qa=undefined&submitAction=ENTER`)
    const json= await data.json()
    setrestaurantInfo(json?.data?.cards[2]?.card?.card?.info);
    setmenutype(json?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2])
-  //  console.log(json?.data?.cards[5]);
+   console.log(json?.data?.cards[5]);
    console.log(menuType);
     }
     useEffect(()=>{

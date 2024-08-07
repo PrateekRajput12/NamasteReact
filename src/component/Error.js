@@ -2,10 +2,10 @@ import React from 'react'
 import { useRouteError } from 'react-router-dom'
 const Error = () => {
 const e = useRouteError()
-console.log(e);
+// console.log(e);
   return (
     <div>
-        {`${e.status}  ${ e.statusText}`}
+           error
     </div>
   )
 }

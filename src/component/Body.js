@@ -14,9 +14,9 @@ const [searchValue,setSearchValue] = useState(null)
     const fetchData=async()=>{
         const data= await fetch(API_URL)
         const response=await data?.json()
-        console.log(response);
+        // console.log(response);
         setrestaurantt(response?.data?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle?.restaurants)
-        console.log(restaurantt);
+        // console.log(restaurantt);
         setFilteredRes(response?.data?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle?.restaurants)
 
     }
