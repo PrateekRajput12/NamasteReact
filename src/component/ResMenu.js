@@ -1,6 +1,8 @@
 import React from 'react'
 import {useState,useEffect} from 'react'
 import { json, Link, useParams } from 'react-router-dom'
+import Container from 'postcss/lib/container'
+import Categories from './Categories'
 // import useFetch from '../hooks/useFetch'
 const ResMenu = () => {
 const {Id}=useParams()
@@ -12,14 +14,24 @@ const [menuType,setmenutype]=useState([])
       const data =await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.6542&lng=77.2373&restaurantId=${Id}&catalog_qa=undefined&submitAction=ENTER`)
    const json= await data.json()
    setrestaurantInfo(json?.data?.cards[2]?.card?.card?.info);
-   setmenutype(json?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2])
-   console.log(json?.data?.cards[5]);
-   console.log(menuType);
+   setmenutype(json?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards)
+  // setmenutype(json?.data?.cards[5]?.groupedCard?.cardGroupMap)
+
+  //  console.log(json?.data?.cards[5]);
+  //  console.log(menuType);
+// setrestaurantInfo(json?.data?.cards);
+// console.log(json?.data);
+// setrestaurantInfo(json?.data);
+// console.log(restaurantInfo);sss
+console.log(menuType);
     }
     useEffect(()=>{
         fetchData()
     },[])
 
+const categories=menuType?.filter((data)=>(data?.card?.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"))
+
+// console.log(categories);
 // const {title,
 
 // }=menuType?.card?.card
@@ -34,7 +46,6 @@ const [menuType,setmenutype]=useState([])
       <Link to="/restaurants/:resId" className="resMenu-nav-Link ">  <p> ResName</p></Link>
       </div>
  
- {/* Box Show at Top */}
 
 
   <div className="resInfo-box  border-black border-2 p-8 rounded-[3rem] flex flex-col gap-[0.7rem] m-[3rem] ">
@@ -45,15 +56,18 @@ const [menuType,setmenutype]=useState([])
 <p className="feeDetails font-semibold">{restaurantInfo?.feeDetails?.message}</p>
  </div>
 
+{
+  categories?.map((data)=>(<Categories key={data?.card?.card?.title} inffo={data}/>))
+}
  {/* Different Type Res */}
- <div className="diff-resMenu-type">
+ {/* <div className="diff-resMenu-type">
   <h1>{menuType?.card?.card?.title}</h1>
 {
   menuType?.card?.card?.itemCards?.map((data,index)=>(
 <div  key={data?.card?.info?.id}>{data?.card?.info?.name}</div>
   ))
 }
- </div>
+ </div> */}
     </div>
   )
 }

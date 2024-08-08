@@ -10,7 +10,7 @@ const ResList=(props)=>{
     avgRating
     }=resData?.info
     return(
-        <div className="resinfo  w-[25rem] max-h-[25rem]  duration-200 hover:cursor-pointer  rounded-3xl">
+        <div className="resinfo  w-[25rem] h-[30rem]  duration-200 hover:cursor-pointer  rounded-3xl">
             <img src={IMG_CDN+cloudinaryImageId} className="resImg  w-[26rem] h-[18rem]  rounded-3xl"/>
        <div className="m-[0.8rem]">
        <h2 className="text-[2rem] font-bold">{name}</h2>

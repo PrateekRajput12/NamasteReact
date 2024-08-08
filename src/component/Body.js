@@ -59,7 +59,7 @@ setFilteredRes(filteredData)
             }>Filtre</button>
 
            </div>
-           <div className="resContainer flex flex-wrap    gap-[6rem]">
+           <div className="resContainer flex flex-wrap    gap-[6rem] ">
 {
   filteredRes?.map((data,index)=>(
 <Link to={"/restaurant/"+data?.info?.id} className="link" key={data?.info?.id}>
