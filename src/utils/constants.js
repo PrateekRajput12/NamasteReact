@@ -4,4 +4,4 @@ export const IMG_CDN="https://media-assets.swiggy.com/swiggy/image/upload/fl_los
 
 export const API_URL="https://www.swiggy.com/mapi/homepage/getCards?lat=28.65420&lng=77.23730"
 
-export const GIT_API="https://api.github.com/users/loveBabbar"
+export const GIT_API="https://api.github.com/users/PrateekRajput12"

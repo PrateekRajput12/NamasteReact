@@ -1,5 +1,6 @@
 import React from 'react'
 import { GIT_API, IMG_CDN } from '../utils/constants'
+import UserContext from '../utils/UserContext'
 
 
 class AboutUs extends React.Component{
@@ -41,6 +42,9 @@ userInfo:json
    <h2>{name}</h2>
   <h3>{location}</h3>
   <p>{bio}</p></div>
+  <UserContext.Consumer>
+    {({loggedInUser})=><h1>{loggedInUser}</h1>}
+  </UserContext.Consumer>
  </div>
     )
   }

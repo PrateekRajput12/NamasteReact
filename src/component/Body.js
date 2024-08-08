@@ -1,9 +1,10 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import ResList,{WithPromotedLabel} from './ResList'
 import { API_URL } from '../utils/constants'
 import {useState,useEffect} from 'react'
 import Shimmer from './Shimmer'
 import {Link} from "react-router-dom";
+import UserContext from '../utils/UserContext'
 
 
 const Body =()=>{
@@ -26,6 +27,8 @@ console.log(filteredRes);
     useEffect(()=>{
         fetchData()
     },[])
+
+const {setuserInfo,loggedInUser}=useContext(UserContext)
 
     if(restaurantt?.length===0){
       return <Shimmer/>
@@ -57,8 +60,9 @@ setFilteredRes(filteredData)
               const filtereddat=restaurantt?.filter((res)=>res?.info?.avgRating >4)
              setFilteredRes(filtereddat)}
             }>Filtre</button>
-
-           </div>
+            <label>User Name</label>
+        <input type="search"  className="text-[2rem] rounded-[3rem]  px-[2rem] py-[1.3rem] ml-6"  placeholder="USER NAME" onChange={(e)=>setuserInfo(e.target.value)}  value={loggedInUser}/>
+           </div> 
            <div className="resContainer flex flex-wrap    gap-[6rem] ">
 {
   filteredRes?.map((data,index)=>(

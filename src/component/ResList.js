@@ -1,6 +1,12 @@
 import React from 'react'
 import { IMG_CDN } from '../utils/constants';
+import {useContext} from 'react'
+import UserContext from '../utils/UserContext'
+
+
 const ResList=(props)=>{
+    const {loggedInUser}=useContext(UserContext)
+
     const{resData}=props
     // console.log(resData);
     const {
@@ -16,6 +22,7 @@ const ResList=(props)=>{
        <h2 className="text-[2rem] font-bold">{name}</h2>
             <h3 className="text-[1.7rem] font-bold"> ⭐{avgRating}</h3>
             <p className="text-[1.5rem] ">{cuisines.join(", ")}</p>
+            <h2>{loggedInUser}</h2>
        </div>
         </div>
     )

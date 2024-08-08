@@ -1,9 +1,11 @@
 import React from 'react'
-import {useEffect,useState} from "react"
+import {useEffect,useState,useContext} from "react"
 import { Link } from 'react-router-dom'
 import useOnlineStatus from '../hooks/useOnlineStatus'
+import UserContext from '../utils/UserContext'
 const Header= ()=>{
-
+const {loggedInUser}=useContext(UserContext)
+console.log(useContext);
     const [logInfo,setlogInfo]=useState("Login")
 const onlineStatus=useOnlineStatus()
     return(
@@ -19,6 +21,7 @@ const onlineStatus=useOnlineStatus()
                 onClick={()=>{
                     logInfo==="Login"?setlogInfo("Logout"):setlogInfo("Login")
                 }}>{logInfo}</button>
+                <li className=" text-[1.8rem] font-bold ">{loggedInUser}</li>
 
             </ul>
             
