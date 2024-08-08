@@ -1,5 +1,5 @@
 import React from 'react'
-import ResList from './ResList'
+import ResList,{WithPromotedLabel} from './ResList'
 import { API_URL } from '../utils/constants'
 import {useState,useEffect} from 'react'
 import Shimmer from './Shimmer'
@@ -12,27 +12,29 @@ const Body =()=>{
     const [filteredRes,setFilteredRes] = useState([])
 const [searchValue,setSearchValue] = useState(null)
     const fetchData=async()=>{
-        const data= await fetch(API_URL)
-        const response=await data?.json()
-        // console.log(response);
+        const data = await fetch(API_URL)
+        const response = await data?.json()
+     
         setrestaurantt(response?.data?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle?.restaurants)
-        // console.log(restaurantt);
+  
         setFilteredRes(response?.data?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle?.restaurants)
-
+console.log(filteredRes);
     }
+
+  const PromotedResList=WithPromotedLabel(ResList)
 
     useEffect(()=>{
         fetchData()
     },[])
 
-    if(restaurantt.length==0){
+    if(restaurantt?.length===0){
       return <Shimmer/>
     }
     return (
         <div className="body w-[var(--max-width)] m-auto  p-[3.5rem]">
            <div className="search-section m-[3rem] ">
             <input type="search"  className="text-[2rem] rounded-[3rem]  px-[2rem] py-[1.3rem] ml-6"  placeholder="Search here..." change={searchValue} onChange={(e)=>{
-setSearchValue(e.target.value)
+setSearchValue(e?.target?.value)
             }}/>
 
            <button className="sameBtn text-[2rem] font-bold bg-emerald-500 px-[2.5rem] py-[0.8rem] rounded-[3rem] text-white ml-6" onClick={
@@ -57,10 +59,13 @@ setFilteredRes(filteredData)
             }>Filtre</button>
 
            </div>
-           <div className="resContainer flex flex-wrap justify-center items-center  gap-[6rem]">
+           <div className="resContainer flex flex-wrap    gap-[6rem]">
 {
   filteredRes?.map((data,index)=>(
-<Link to={"/restaurant/"+data?.info?.id} key={data?.info?.id} className="link"><ResList  resData={data}/></Link>
+<Link to={"/restaurant/"+data?.info?.id} className="link" key={data?.info?.id}>
+{data?.info?.promoted?<PromotedResList   resData={data}/>:<ResList   resData={data}/>}
+</Link>
+
   ))
 }
            </div>

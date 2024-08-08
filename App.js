@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Header from './src/component/Header';
-import Body from './src/component/Body';
+// import Body from './src/component/Body';
 import { BrowserRouter,RouterProvider,Outlet, createBrowserRouter } from 'react-router-dom';
 // import AboutUs from './src/component/AboutUs';
 import ContactUs from './src/component/ContactUs';
@@ -16,6 +16,7 @@ const AboutUs=lazy(()=>import('./src/component/AboutUs'))
 
 const Grocery=lazy(()=>import('./src/component/Grocery'))
 
+const Body=lazy(()=>import('./src/component/Body'))
 
 const AppLayout= ()=>{
   const heading=<h1>This is not done </h1>

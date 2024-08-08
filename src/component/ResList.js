@@ -21,4 +21,17 @@ const ResList=(props)=>{
     )
 }
 
+export const WithPromotedLabel=(ResList)=>{
+    return(props)=>{
+        return(
+            <div >
+                <label className="absolute bg-black text-white text-[1.4rem] rounded-lg px-4 py-2">
+                    Promoted
+                </label>
+                <ResList {...props}/>
+            </div>
+        )
+    }
+}
+
 export default ResList
