@@ -7,6 +7,8 @@ import Categories from './Categories'
 const ResMenu = () => {
 const {Id}=useParams()
 console.log(Id);
+
+const [showIndex,setshowIndex]=useState(0)
 const [menuType,setmenutype]=useState([])
     const [restaurantInfo,setrestaurantInfo]=useState([])
 
@@ -57,7 +59,8 @@ const categories=menuType?.filter((data)=>(data?.card?.card?.["@type"]==="type.g
  </div>
 
 {
-  categories?.map((data)=>(<Categories key={data?.card?.card?.title} inffo={data}/>))
+  categories?.map((data,index)=>(<Categories key={data?.card?.card?.title} inffo={data} showItems={index===showIndex?true:false}
+  setshowIndex={()=>setshowIndex(index)}/>))
 }
  {/* Different Type Res */}
  {/* <div className="diff-resMenu-type">
