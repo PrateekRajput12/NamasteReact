@@ -10,6 +10,12 @@ import ResMenu from './src/component/ResMenu';
 import { lazy,useState,useEffect } from 'react';
 import {Suspense} from 'react'
 import UserContext from './src/utils/UserContext';
+import { Provider } from 'react-redux';
+import appStore from './src/utils/appStore';
+import Cart from './src/component/Cart.js';
+
+
+
 const root = ReactDOM.createRoot(document.getElementById("root"))
 
 const AboutUs=lazy(()=>import('./src/component/AboutUs'))
@@ -31,7 +37,8 @@ useEffect(()=>{
 
   const heading=<h1>This is not done </h1>
     return(
-        <UserContext.Provider value={{loggedInUser:userInfo,setuserInfo }}>
+       <Provider store={appStore}>
+         <UserContext.Provider value={{loggedInUser:userInfo,setuserInfo }}>
         <div className="wrapper w-[100vw] ">
         {/* <UserContext.Provider value={{loggedInUser:"kaju"}}> */}
 <Header></Header>
@@ -39,6 +46,7 @@ useEffect(()=>{
 <Outlet/>
         </div>
         </UserContext.Provider>
+       </Provider>
     )
 }
 const applayout=createBrowserRouter([
@@ -70,6 +78,11 @@ children:([
 {
     path:"/grocery",
     element:<Suspense fallback={Error}><Grocery/></Suspense>,
+
+},
+{
+    path:"/cart",
+    element:<Cart/>
 
 },
 
